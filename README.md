@@ -1,6 +1,5 @@
 # Swift Macros
-
-A library of useful macros.
+Contains a collection of handy macros for your everyday project.
 
 ## Usage
 ### Symbol
