@@ -5,18 +5,18 @@ import PackageDescription
 import CompilerPluginSupport
 
 let package = Package(
-  name: "Cargo",
+  name: "SwiftMacros",
   platforms: [.macOS(.v12), .iOS(.v13)],
   products: [
-    .library(name: "Cargo", targets: [
-      "Cargo"
+    .library(name: "SwiftMacros", targets: [
+      "SwiftMacros"
     ])
   ],
   dependencies: [
     .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.2")
   ],
   targets: [
-    .target(name: "Cargo", dependencies: [
+    .target(name: "SwiftMacros", dependencies: [
       "Macros"
     ]),
     .macro(name: "Macros", dependencies: [
