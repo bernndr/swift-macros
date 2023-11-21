@@ -1,4 +1,4 @@
-# SwiftMacros
+# Swift Macros
 
 A library of useful macros.
 
