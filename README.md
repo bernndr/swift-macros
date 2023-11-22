@@ -14,7 +14,7 @@ let url = #URL("https://www.swift.org") // Macro expands to URL(string: "https:/
 ```
 > In case the provided value is not a valid URL, Xcode will show a compile error.
 
-### AssociatedValuesMacro
+### AssociatedValues
 Add variables to retrieve the associated values
 
 ```swift
