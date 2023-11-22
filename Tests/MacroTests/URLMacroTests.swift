@@ -9,7 +9,8 @@ final class URLMacroTests: XCTestCase {
         #"""
         #URL("https://www.apple.com")
         """#,
-        expandedSource: #"""
+        expandedSource: 
+        #"""
         URL(string: "https://www.apple.com")!
         """#,
         macros: testMacros

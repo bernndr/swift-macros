@@ -6,6 +6,7 @@ import Macros
 
 let testMacros: [String: Macro.Type] = [
   "symbol": SymbolMacro.self,
-  "URL": URLMacro.self
+  "URL": URLMacro.self,
+  "AssociatedValues": AssociatedValuesMacro.self
 ]
 #endif
