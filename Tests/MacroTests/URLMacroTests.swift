@@ -1,8 +1,13 @@
 import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
 import XCTest
+import SwiftMacros
 
 final class URLMacroTests: XCTestCase {
+  func testUsage() {
+    XCTAssertEqual(#URL("http://localhost"), URL(string: "http://localhost")!)
+  }
+
   func testValidURL() {
     #if canImport(Macros)
     assertMacroExpansion(

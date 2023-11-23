@@ -1,15 +1,16 @@
 import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
 import XCTest
+import SwiftMacros
 
 final class SymbolMacroTests: XCTestCase {
   func testValidSymbol() {
     #if canImport(Macros)
     assertMacroExpansion(
         #"""
-        #symbol("globe")
+        #symbol("swift")
         """#,
-        expandedSource: "globe",
+        expandedSource: "swift",
         macros: testMacros
     )
     #else
@@ -41,11 +42,11 @@ final class SymbolMacroTests: XCTestCase {
     #if canImport(Macros)
     assertMacroExpansion(
         #"""
-        #symbol("\("globe")")
+        #symbol("\("swift")")
         """#,
         expandedSource:
         #"""
-        #symbol("\("globe")")
+        #symbol("\("swift")")
         """#,
         diagnostics: [
           DiagnosticSpec(message: #"Cannot parse SF Symbol name"#, line: 1, column: 1)
