@@ -18,8 +18,8 @@ let url = #URL("https://www.swift.org") // Macro expands to URL(string: "https:/
 Unwrap value if nil return defaultValue.
 
 ```swift
-let optional: String? = nil
-#unwrap(optional, defaultValue: "swift")
+let value: String? = nil
+#unwrap(value, defaultValue: "swift")
 ```
 
 ### AssociatedValues
