@@ -17,7 +17,7 @@ public struct SymbolMacro: ExpressionMacro {
     }
 
     try verifySymbol(name: literalSegment.content.text)
-    return "\(segments)"
+    return "\"\(raw: literalSegment.content.text)\""
   }
 
   private static func verifySymbol(name: String) throws {

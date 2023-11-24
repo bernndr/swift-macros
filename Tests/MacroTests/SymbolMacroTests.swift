@@ -1,8 +1,13 @@
 import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
 import XCTest
+@testable import SwiftMacros
 
 final class SymbolMacroTests: XCTestCase {
+  func testUsage() {
+    XCTAssertEqual(#symbol("swift"), "swift")
+  }
+
   func testValidSymbol() {
     #if canImport(Macros)
     assertMacroExpansion(
