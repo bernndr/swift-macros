@@ -16,12 +16,12 @@ let package = Package(
     .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.2")
   ],
   targets: [
-    .target(name: "SwiftMacros", dependencies: [
-      "Macros"
-    ]),
     .macro(name: "Macros", dependencies: [
       .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
       .product(name: "SwiftCompilerPlugin", package: "swift-syntax")
+    ]),
+    .target(name: "SwiftMacros", dependencies: [
+      "Macros"
     ]),
     .testTarget(name: "MacroTests", dependencies: [
       "Macros",
