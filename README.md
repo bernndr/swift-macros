@@ -26,7 +26,7 @@ let optionalValue: String? = nil
 let unwrapValue = #unwrap(optionalValue, defaultValue: "swift")
 { [wrapped = unwrapValue] in
   guard let wrapped else {
-	  return "swift"
+    return "swift"
   }
   return wrapped
 }()
