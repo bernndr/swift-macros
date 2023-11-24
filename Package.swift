@@ -6,26 +6,41 @@ import CompilerPluginSupport
 
 let package = Package(
   name: "SwiftMacros",
-  platforms: [.macOS(.v12), .iOS(.v13)],
+  platforms: [
+    .macOS(.v12),
+    .iOS(.v13)
+  ],
   products: [
-    .library(name: "SwiftMacros", targets: [
-      "SwiftMacros"
-    ])
+    .library(
+      name: "SwiftMacros",
+      targets: [
+        "SwiftMacros"
+      ]
+    )
   ],
   dependencies: [
     .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.2")
   ],
   targets: [
-    .macro(name: "Macros", dependencies: [
-      .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
-      .product(name: "SwiftCompilerPlugin", package: "swift-syntax")
-    ]),
-    .target(name: "SwiftMacros", dependencies: [
-      "Macros"
-    ]),
-    .testTarget(name: "MacroTests", dependencies: [
-      "Macros",
-      .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax")
-    ])
+    .macro(
+      name: "Macros",
+      dependencies: [
+        .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
+        .product(name: "SwiftCompilerPlugin", package: "swift-syntax")
+      ]
+    ),
+    .target(
+      name: "SwiftMacros",
+      dependencies: [
+        "Macros"
+      ]
+    ),
+    .testTarget(
+      name: "MacroTests",
+      dependencies: [
+        "Macros",
+        .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax")
+      ]
+    )
   ]
 )
