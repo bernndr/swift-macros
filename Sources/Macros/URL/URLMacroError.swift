@@ -1,5 +1,3 @@
-import Foundation
-
 enum URLMacroError: Error, CustomStringConvertible {
   case requiresStaticStringLiteral
   case malformedURL(urlString: String)

@@ -1,7 +1,6 @@
 import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
 import XCTest
-import SwiftMacros
 
 final class SymbolMacroTests: XCTestCase {
   func testValidSymbol() {

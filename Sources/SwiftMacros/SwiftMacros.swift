@@ -11,3 +11,6 @@ public macro unwrap<Wrapped>(_ wrapped: Wrapped?, default: Wrapped) -> Wrapped =
 
 @attached(member, names: arbitrary)
 public macro AssociatedValues() = #externalMacro(module: "Macros", type: "AssociatedValuesMacro")
+
+@attached(member, names: named(init), named(shared))
+public macro Singleton() = #externalMacro(module: "Macros", type: "SingletonMacro")

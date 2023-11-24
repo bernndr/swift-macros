@@ -61,3 +61,20 @@ enum Barcode {
   }
 }
 ```
+
+### Singleton
+Generate singleton code for struct and class
+
+```swift
+@Singleton
+struct UserStore {
+}
+
+// Expands to
+struct UserStore {
+  static let shared = UserStore()
+
+  private init() {
+  }
+}
+```

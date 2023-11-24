@@ -1,5 +1,4 @@
 import SwiftSyntaxMacros
-import SwiftDiagnostics
 import SwiftSyntax
 import Foundation
 

@@ -1,5 +1,3 @@
-import Foundation
-
 enum SymbolMacroError: Error, CustomStringConvertible {
   case invalidSymbol(name: String)
   case parseName

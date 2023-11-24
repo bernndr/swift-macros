@@ -3,7 +3,7 @@ import SwiftSyntaxMacrosTestSupport
 import XCTest
 
 final class AssociatedValuesMacroTests: XCTestCase {
-  func testValidSymbol() {
+  func testGenerateVarForAssociatedValues() {
     #if canImport(Macros)
     assertMacroExpansion(
         """
@@ -71,7 +71,7 @@ final class AssociatedValuesMacroTests: XCTestCase {
     #endif
   }
 
-  func testMacroIsSupportOnlyEnum() {
+  func testMacroIsOnlySupportEnum() {
     #if canImport(Macros)
     assertMacroExpansion(
         #"""
@@ -87,7 +87,7 @@ final class AssociatedValuesMacroTests: XCTestCase {
         }
         """#,
         diagnostics: [
-          DiagnosticSpec(message: #"@AssociatedValues Can only be applied to enum"#, line: 1, column: 1)
+          DiagnosticSpec(message: #"Can only be applied to enum"#, line: 1, column: 1)
         ],
         macros: testMacros
     )

@@ -1,7 +1,7 @@
 import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
 import XCTest
-import SwiftMacros
+@testable import SwiftMacros
 
 final class UnwrapMacroTests: XCTestCase {
   func testReturnDefaultValue() {
