@@ -14,24 +14,6 @@ let url = #URL("https://www.swift.org") // Macro expands to URL(string: "https:/
 ```
 > In case the provided value is not a valid URL, Xcode will show a compile error.
 
-### Unwrap
-Unwrap value if nil return defaultValue.
-
-```swift
-let optionalValue: String? = nil
-let unwrapValue = #unwrap(optionalValue, defaultValue: "swift")
-
-// Expands to
-let optionalValue: String? = nil
-let unwrapValue = #unwrap(optionalValue, defaultValue: "swift")
-{ [wrapped = unwrapValue] in
-  guard let wrapped else {
-    return "swift"
-  }
-  return wrapped
-}()
-```
-
 ### AssociatedValues
 Add variables to retrieve the associated values.
 
