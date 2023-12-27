@@ -11,13 +11,13 @@ final class URLMacroTests: XCTestCase {
   func testValidURL() {
     #if canImport(Macros)
     assertMacroExpansion(
-        #"""
+        """
         #URL("https://www.apple.com")
-        """#,
+        """,
         expandedSource: 
-        #"""
+        """
         URL(string: "https://www.apple.com")!
-        """#,
+        """,
         macros: testMacros
     )
     #else
@@ -48,13 +48,13 @@ final class URLMacroTests: XCTestCase {
   func testMalformedURLError() {
     #if canImport(Macros)
     assertMacroExpansion(
-        #"""
+        """
         #URL("https://www. apple.com")
-        """#,
+        """,
         expandedSource:
-        #"""
+        """
         #URL("https://www. apple.com")
-        """#,
+        """,
         diagnostics: [
           DiagnosticSpec(message: #"The input URL is malformed: "https://www. apple.com""#, line: 1, column: 1)
         ],

@@ -11,10 +11,13 @@ final class SymbolMacroTests: XCTestCase {
   func testValidSymbol() {
     #if canImport(Macros)
     assertMacroExpansion(
-        #"""
+        """
         #symbol("swift")
-        """#,
-        expandedSource: "swift",
+        """,
+        expandedSource: 
+        """
+        "swift"
+        """,
         macros: testMacros
     )
     #else
@@ -25,13 +28,13 @@ final class SymbolMacroTests: XCTestCase {
   func testInvalidSymbol() {
     #if canImport(Macros)
     assertMacroExpansion(
-        #"""
+        """
         #symbol("test")
-        """#,
+        """,
         expandedSource:
-        #"""
+        """
         #symbol("test")
-        """#,
+        """,
         diagnostics: [
           DiagnosticSpec(message: #""test" is not a valid symbol"#, line: 1, column: 1)
         ],
