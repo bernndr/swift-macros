@@ -19,7 +19,7 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.2")
+    .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "509.0.2")
   ],
   targets: [
     .macro(
