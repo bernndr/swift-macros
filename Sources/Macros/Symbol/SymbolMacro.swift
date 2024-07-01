@@ -2,8 +2,8 @@ import SwiftSyntaxMacros
 import SwiftSyntax
 import SwiftUI
 
-public struct SymbolMacro: ExpressionMacro {
-  public static func expansion(
+struct SymbolMacro: ExpressionMacro {
+  static func expansion(
     of node: some FreestandingMacroExpansionSyntax,
     in context: some MacroExpansionContext
   ) throws -> ExprSyntax {

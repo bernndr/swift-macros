@@ -2,8 +2,8 @@ import SwiftSyntaxMacros
 import SwiftSyntax
 import Foundation
 
-public struct URLMacro: ExpressionMacro {
-  public static func expansion(
+struct URLMacro: ExpressionMacro {
+  static func expansion(
     of node: some FreestandingMacroExpansionSyntax,
     in context: some MacroExpansionContext
   ) throws -> ExprSyntax {

@@ -2,8 +2,8 @@ import SwiftSyntax
 import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
 
-public struct AssociatedValuesMacro: MemberMacro {
-  public static func expansion(
+struct AssociatedValuesMacro: MemberMacro {
+  static func expansion(
     of node: AttributeSyntax,
     providingMembersOf declaration: some DeclGroupSyntax,
     in context: some MacroExpansionContext

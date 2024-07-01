@@ -7,8 +7,7 @@ import CompilerPluginSupport
 let package = Package(
   name: "SwiftMacros",
   platforms: [
-    .macOS(.v12),
-    .iOS(.v13)
+    .macOS(.v12)
   ],
   products: [
     .library(
@@ -38,7 +37,7 @@ let package = Package(
     .testTarget(
       name: "MacroTests",
       dependencies: [
-        "SwiftMacros",
+        "Macros",
         .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax")
       ]
     )

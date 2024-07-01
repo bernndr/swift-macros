@@ -1,14 +1,9 @@
-//
-//  File.swift
-//  
-//
-//  Created by Andrea on 24/11/23.
 import SwiftSyntax
 import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
 
-public struct SingletonMacro: MemberMacro {
-  public static func expansion(
+struct SingletonMacro: MemberMacro {
+  static func expansion(
     of node: AttributeSyntax,
     providingMembersOf declaration: some DeclGroupSyntax,
     in context: some MacroExpansionContext

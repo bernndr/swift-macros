@@ -2,7 +2,7 @@ import Foundation
 import SwiftSyntaxMacros
 
 #if canImport(Macros)
-import Macros
+@testable import Macros
 
 let testMacros: [String: Macro.Type] = [
   "symbol": SymbolMacro.self,
