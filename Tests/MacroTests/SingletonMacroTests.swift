@@ -3,7 +3,7 @@ import SwiftSyntaxMacrosTestSupport
 import XCTest
 
 final class SingletonMacroTests: XCTestCase {
-  func testGenerateAPublicSignletonProperty() {
+  func testGenerateAPublicSignletonProperty() throws {
     #if canImport(Macros)
     assertMacroExpansion(
         """
@@ -29,7 +29,7 @@ final class SingletonMacroTests: XCTestCase {
     #endif
   }
 
-  func testGenerateASignletonProperty() {
+  func testGenerateASignletonProperty() throws {
     #if canImport(Macros)
     assertMacroExpansion(
         """
@@ -55,7 +55,7 @@ final class SingletonMacroTests: XCTestCase {
     #endif
   }
 
-  func testMacroIsOnlySupportClassOrStruct() {
+  func testMacroIsOnlySupportClassOrStruct() throws {
     #if canImport(Macros)
     assertMacroExpansion(
         """

@@ -8,7 +8,7 @@ final class URLMacroTests: XCTestCase {
     XCTAssertEqual(#URL("http://localhost"), URL(string: "http://localhost")!)
   }
 
-  func testValidURL() {
+  func testValidURL() throws {
     #if canImport(Macros)
     assertMacroExpansion(
         """
@@ -25,7 +25,7 @@ final class URLMacroTests: XCTestCase {
     #endif
   }
 
-  func testURLStringLiteralError() {
+  func testURLStringLiteralError() throws {
     #if canImport(Macros)
     assertMacroExpansion(
         #"""
@@ -45,7 +45,7 @@ final class URLMacroTests: XCTestCase {
     #endif
   }
 
-  func testMalformedURLError() {
+  func testMalformedURLError() throws {
     #if canImport(Macros)
     assertMacroExpansion(
         """

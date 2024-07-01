@@ -8,7 +8,7 @@ final class SymbolMacroTests: XCTestCase {
     XCTAssertEqual(#symbol("swift"), "swift")
   }
 
-  func testValidSymbol() {
+  func testValidSymbol() throws {
     #if canImport(Macros)
     assertMacroExpansion(
         """
@@ -25,7 +25,7 @@ final class SymbolMacroTests: XCTestCase {
     #endif
   }
 
-  func testInvalidSymbol() {
+  func testInvalidSymbol() throws {
     #if canImport(Macros)
     assertMacroExpansion(
         """
@@ -45,7 +45,7 @@ final class SymbolMacroTests: XCTestCase {
     #endif
   }
 
-  func testParseNameError() {
+  func testParseNameError() throws {
     #if canImport(Macros)
     assertMacroExpansion(
         #"""

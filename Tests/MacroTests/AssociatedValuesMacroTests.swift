@@ -3,7 +3,7 @@ import SwiftSyntaxMacrosTestSupport
 import XCTest
 
 final class AssociatedValuesMacroTests: XCTestCase {
-  func testGenerateVarForAssociatedValues() {
+  func testGenerateVarForAssociatedValues() throws {
     #if canImport(Macros)
     assertMacroExpansion(
         """
@@ -71,7 +71,7 @@ final class AssociatedValuesMacroTests: XCTestCase {
     #endif
   }
 
-  func testMacroIsOnlySupportEnum() {
+  func testMacroIsOnlySupportEnum() throws {
     #if canImport(Macros)
     assertMacroExpansion(
         #"""
