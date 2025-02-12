@@ -14,7 +14,18 @@ struct SingletonMacro: MemberMacro {
 
     let nameOfDecl = try name(providingMembersOf: declaration).text
     let isPublic = declaration.modifiers.map(\.name.tokenKind.keyword).contains(.public)
-    let initializer = try InitializerDeclSyntax("private init()") {}
+
+    // 检查是否继承自NSObject
+    let inheritsFromNSObject = if let classDecl = declaration.as(ClassDeclSyntax.self) {
+        classDecl.inheritanceClause?.inheritedTypes.contains { type in
+            type.type.as(IdentifierTypeSyntax.self)?.name.text == "NSObject"
+        } ?? false
+    } else {
+        false
+    }
+
+    // 根据是否继承NSObject决定init方法是否需要override
+    let initializer = try InitializerDeclSyntax(inheritsFromNSObject ? "private override init()" : "private init()") {}
 
     let shared = "\(isPublic ? "public" : "") static let shared = \(nameOfDecl)()"
 
