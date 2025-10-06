@@ -6,6 +6,7 @@ struct SingletonMacro: MemberMacro {
   static func expansion(
     of node: AttributeSyntax,
     providingMembersOf declaration: some DeclGroupSyntax,
+    conformingTo _: [TypeSyntax],
     in context: some MacroExpansionContext
   ) throws -> [DeclSyntax] {
     guard [SwiftSyntax.SyntaxKind.classDecl, .structDecl].contains(declaration.kind) else {
