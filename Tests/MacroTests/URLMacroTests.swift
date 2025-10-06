@@ -1,10 +1,12 @@
+#if canImport(Macros)
 import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
-import XCTest
+import Testing
 
-final class URLMacroTests: XCTestCase {
-  func testValidURL() throws {
-    #if canImport(Macros)
+@Suite("URL Macro")
+struct URLMacroTests {
+  @Test
+  func validURL() {
     assertMacroExpansion(
         """
         #URL("https://www.apple.com")
@@ -15,13 +17,10 @@ final class URLMacroTests: XCTestCase {
         """,
         macros: testMacros
     )
-    #else
-    throw XCTSkip("macros are only supported when running tests for the host platform")
-    #endif
   }
 
-  func testURLStringLiteralError() throws {
-    #if canImport(Macros)
+  @Test
+  func UrlStringLiteralError() {
     assertMacroExpansion(
         #"""
         #URL("https://www.apple.com\(Int.random())")
@@ -35,13 +34,10 @@ final class URLMacroTests: XCTestCase {
         ],
         macros: testMacros
     )
-    #else
-    throw XCTSkip("macros are only supported when running tests for the host platform")
-    #endif
   }
 
-  func testMalformedURLError() throws {
-    #if canImport(Macros)
+  @Test
+  func malformedURLError() {
     assertMacroExpansion(
         """
         #URL("https://www. apple.com")
@@ -55,8 +51,6 @@ final class URLMacroTests: XCTestCase {
         ],
         macros: testMacros
     )
-    #else
-    throw XCTSkip("macros are only supported when running tests for the host platform")
-    #endif
   }
 }
+#endif
