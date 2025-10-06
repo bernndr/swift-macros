@@ -1,10 +1,12 @@
+#if canImport(Macros)
 import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
-import XCTest
+import Testing
 
-final class SingletonMacroTests: XCTestCase {
-  func testGenerateAPublicSignletonProperty() throws {
-    #if canImport(Macros)
+@Suite("Singleton Macro")
+struct SingletonMacroTests {
+  @Test
+  func generateAPublicSignletonProperty() {
     assertMacroExpansion(
         """
         @Singleton
@@ -24,13 +26,10 @@ final class SingletonMacroTests: XCTestCase {
         macros: testMacros,
         indentationWidth: .spaces(2)
     )
-    #else
-    throw XCTSkip("macros are only supported when running tests for the host platform")
-    #endif
   }
 
-  func testGenerateASignletonProperty() throws {
-    #if canImport(Macros)
+  @Test
+  func generateASignletonProperty() {
     assertMacroExpansion(
         """
         @Singleton
@@ -50,13 +49,10 @@ final class SingletonMacroTests: XCTestCase {
         macros: testMacros,
         indentationWidth: .spaces(2)
     )
-    #else
-    throw XCTSkip("macros are only supported when running tests for the host platform")
-    #endif
   }
 
-  func testMacroIsOnlySupportClassOrStruct() throws {
-    #if canImport(Macros)
+  @Test
+  func macroIsOnlySupportClassOrStruct() {
     assertMacroExpansion(
         """
         @Singleton
@@ -73,8 +69,6 @@ final class SingletonMacroTests: XCTestCase {
         ],
         macros: testMacros
     )
-    #else
-    throw XCTSkip("macros are only supported when running tests for the host platform")
-    #endif
   }
 }
+#endif

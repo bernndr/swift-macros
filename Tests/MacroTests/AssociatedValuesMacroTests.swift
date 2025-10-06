@@ -1,10 +1,12 @@
+#if canImport(Macros)
 import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
-import XCTest
+import Testing
 
-final class AssociatedValuesMacroTests: XCTestCase {
-  func testGenerateVarForAssociatedValues() throws {
-    #if canImport(Macros)
+@Suite("Associated Values Macro")
+struct AssociatedValuesMacroTests {
+  @Test
+  func generateVarForAssociatedValues() {
     assertMacroExpansion(
         """
         @AssociatedValues
@@ -66,13 +68,10 @@ final class AssociatedValuesMacroTests: XCTestCase {
         macros: testMacros,
         indentationWidth: .spaces(2)
     )
-    #else
-    throw XCTSkip("macros are only supported when running tests for the host platform")
-    #endif
   }
 
-  func testMacroIsOnlySupportEnum() throws {
-    #if canImport(Macros)
+  @Test
+  func macroIsOnlySupportEnum() {
     assertMacroExpansion(
         #"""
         @AssociatedValues
@@ -91,8 +90,6 @@ final class AssociatedValuesMacroTests: XCTestCase {
         ],
         macros: testMacros
     )
-    #else
-    throw XCTSkip("macros are only supported when running tests for the host platform")
-    #endif
   }
 }
+#endif

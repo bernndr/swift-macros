@@ -1,10 +1,12 @@
+#if canImport(Macros)
 import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
-import XCTest
+import Testing
 
-final class SymbolMacroTests: XCTestCase {
-  func testValidSymbol() throws {
-    #if canImport(Macros)
+@Suite("Symbol Macro")
+struct SymbolMacroTests {
+  @Test
+  func validSymbol() {
     assertMacroExpansion(
         """
         #symbol("swift")
@@ -15,13 +17,10 @@ final class SymbolMacroTests: XCTestCase {
         """,
         macros: testMacros
     )
-    #else
-    throw XCTSkip("macros are only supported when running tests for the host platform")
-    #endif
   }
 
-  func testInvalidSymbol() throws {
-    #if canImport(Macros)
+  @Test
+  func invalidSymbol() {
     assertMacroExpansion(
         """
         #symbol("test")
@@ -35,13 +34,10 @@ final class SymbolMacroTests: XCTestCase {
         ],
         macros: testMacros
     )
-    #else
-    throw XCTSkip("macros are only supported when running tests for the host platform")
-    #endif
   }
 
-  func testParseNameError() throws {
-    #if canImport(Macros)
+  @Test
+  func parseSymbolNameWithError() {
     assertMacroExpansion(
         #"""
         #symbol("\("swift")")
@@ -55,8 +51,6 @@ final class SymbolMacroTests: XCTestCase {
         ],
         macros: testMacros
     )
-    #else
-    throw XCTSkip("macros are only supported when running tests for the host platform")
-    #endif
   }
 }
+#endif
