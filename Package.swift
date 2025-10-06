@@ -7,7 +7,8 @@ import CompilerPluginSupport
 let package = Package(
   name: "SwiftMacros",
   platforms: [
-    .macOS(.v12)
+    .macOS(.v12),
+    .iOS(.v13),
   ],
   products: [
     .library(
@@ -18,7 +19,7 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "600.0.0")
+    .package(url: "https://github.com/swiftlang/swift-syntax", "509.0.0"..<"603.0.0")
   ],
   targets: [
     .macro(
